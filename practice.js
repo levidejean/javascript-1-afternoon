@@ -7,9 +7,9 @@
 
 //Code here
 
-function greeting(name){
+function greeting(name) {
   return "Hello, " + name;
-}; 
+}
 //////////////////PROBLEM 2////////////////////
 
 //Rewrite the function greeting as a function expression.
@@ -17,7 +17,7 @@ function greeting(name){
 
 //Code Here
 
-var newGreeting = function(name){
+newGreeting = function (name) {
   return "Hello, " + name;
 }
 
@@ -27,15 +27,19 @@ var newGreeting = function(name){
 //Name it finalGreeting.
 
 //Code Here
-var finalGreeting = name => "Hello, " + name;
+
+var finalGreeting = (name) => {
+  return "Hello, " + name;
+}
+console.log(finalGreeting('Levi'))
 //////////////////PROBLEM 4////////////////////
 
 //Create an array called groceries with the values
 //"apples", "milk", "eggs", "bread"
 
 //Code Here
-var groceries = ["apples", "milk", "eggs", "bread"];
 
+const groceries = ['apples', 'milk', 'eggs', 'bread'];
 //Write a function called doubleCheck that takes in an array
 //as a parameter.
 
@@ -43,12 +47,15 @@ var groceries = ["apples", "milk", "eggs", "bread"];
 //doubleCheck should return the array.
 
 //Code Here
-function doubleCheck(myArray){
-  if (myArray.includes("chocolate")===false){
-    myArray.push("chocolate");
+function doubleCheck(arr) {
+  for (var i = 0; i < arr.length; i++) {
+    if (arr[i] !== "chocolate") {
+      groceries.push("chocolate");
+    }
   }
-  return myArray;
-};
+  return groceries;
+}
+
 //////////////////PROBLEM 5////////////////////
 
 //Create an object saved to the variable dog.
@@ -57,18 +64,20 @@ function doubleCheck(myArray){
 //and goodBoy (a boolean).
 
 //Code Here
-var dog = {
+
+let dog = {
   name: "Fido",
-  color: "Purple",
-  age: 4,
+  color: "Black",
+  age: 100,
   goodBoy: true
-};
+}
+
 //...access the dog's name from the object and assign it to a
 //variable called devMountainClassPet.
 
 //Code Here
 
-var devMountainClassPet = dog.name;
+const devMountainClassPet = dog.name;
 
 //Add a method to dog called bark.
 //The value of bark should be a function that returns the string 
@@ -76,17 +85,16 @@ var devMountainClassPet = dog.name;
 
 //Code Here
 
-dog.bark = function(){
-return "Woof woof";
+dog.bark = function () {
+  return "Woof woof";
 };
-
 //Store the result of invoking the bark method in a variable called 
 //ruff.
 
 //Code Here
 
-var ruff = dog.bark();
 
+let ruff = dog.bark();
 //////////////////PROBLEM 6////////////////////
 
 //Write a function called looper that takes in an array. looper should
@@ -100,15 +108,16 @@ var ruff = dog.bark();
 
 //Code Here
 
-function looper(myArray){
-  var mySum = 0;
-  for(var i = 0;i<myArray.length;i++){
-      if((myArray[i] %2) || (myArray[i] >= 100)){
-        mySum = mySum + myArray[i] ;
-      } 
+function looper(arr) {
+  let mySum = 0;
+  for (var i = 0; i < arr.length; i++) {
+    if ((arr[i] % 2) || (arr[i] >= 100)) {
+      mySum = mySum + arr[i];
+    }
   }
-  return mySum; 
+  return mySum;
 }
+
 //////////////////PROBLEM 7////////////////////
 
 //Given the following function called math
@@ -122,16 +131,16 @@ function math(num1, num2, callback) {
 
 //Code Here
 
-function add(num1, num2){
+function add(num1, num2) {
   return num1 + num2;
-};
+}
 
 //Now invoke math, passing in the numbers 3 and 4, and your add function,
 //storing the result in the variable mathSum.
 
 //Code Here
 
-var mathSum = math(3,4,add); 
+mathSum = math(3, 4, add);
 
 //////////////////PROBLEM 8////////////////////
 
@@ -148,10 +157,10 @@ function sampleCallbackTwo() {
 }
 
 //Code Here
-
-function invoker(callback){
-  return callback();
+function invoker(param) {
+  return param();
 }
+
 
 //////////////////PROBLEM 9////////////////////
 
@@ -193,19 +202,18 @@ let pondScope = ["duck", "realDuck"];
 
 //Code Here
 
-function outerFn(){
-  return new Function("return 'Levi DeJean'");
-};
+function outerFn() {
+  return () => { return "Levi" }
+}
 
 //Now save the result of invoking outerFn into a variable called innerFn.
 
 //Code Here
 
-var innerFn = outerFn();
+innerFn = outerFn();
 
 //Now invoke innerFn and save the result to a variable called finalResult.
-
+finalResult = innerFn();
 //Code Here
 
-var finalResult = innerFn();
 
